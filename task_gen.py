@@ -168,7 +168,11 @@ async def main_async(args):
     print("="*60, flush=True)
     print("Total tasks: ", args.end - args.start, flush=True)
     print("Processed tasks: ", len(id_set), flush=True)
-    print("Remaining tasks: ", args.end - args.start - len(id_set), flush=True)
+    remain = 0
+    for i in range(args.start, args.end):
+        if i not in id_set:
+            remain += 1
+    print("Remaining tasks: ", remain, flush=True)
     print("="*60, flush=True)
     # for memory efficiency
     tasks = None
@@ -199,7 +203,7 @@ async def main_async(args):
         iteration_start = time.time()
         
         # Skip if already processed
-        if id not in id_set:
+        if id in id_set:
             print(f"⏭️  Task {id}: Already processed, skipping...", flush=True)
         else:
             challenge = await code_task.generate(task_id=id)
