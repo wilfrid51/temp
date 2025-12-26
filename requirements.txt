@@ -1,0 +1,19 @@
+# Core dependencies
+datasets>=2.14.0
+openai>=1.0.0
+httpx>=0.24.0
+tqdm>=4.65.0
+
+# For async operations
+asyncio>=3.4.3
+aiofiles>=23.0.0
+
+# For data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# For multiprocessing (code execution)
+multiprocess>=0.70.14
+
+# For process monitoring
+psutil>=5.9.0
