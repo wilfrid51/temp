@@ -244,6 +244,10 @@ class CodeTask:
                             timeout=timeout,
                             test_index=i
                         )
+                        if not result:
+                            print(f"Testcase {i} failed.")
+                            print(f"input: {test_input}")
+                            print(f"output: {outputs[i]}")
                     else:
                         # Stdin/stdout mode
                         if isinstance(test_input, str):
@@ -461,6 +465,8 @@ class CodeTask:
             if isinstance(exec_outputs, tuple):
                 exec_outputs = list(exec_outputs)
             
+            print(f"# exec_outputs #: {exec_outputs}")
+            print(f"# test_case_outputs #: {test_case_outputs}")
             if exec_outputs == test_case_outputs:
                 return True
             if isinstance(test_case_outputs, list) and exec_outputs == test_case_outputs[0]:
