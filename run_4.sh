@@ -1,2 +1,2 @@
-python3 task_gen.py --start 7084 --end 7200
+python3 task_gen_v2.py --start 2700 --end 3300
 sleep 5600000
